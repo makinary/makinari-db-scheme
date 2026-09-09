@@ -1,0 +1,23 @@
+# Supabase
+.supabase/
+supabase/.temp/
+
+# Environment / secrets (if you add any later)
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
