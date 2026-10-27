@@ -24,9 +24,11 @@ outbound delivery while retaining business/RLS behavior.
 python3 scripts/validate-bootstrap.py
 ```
 
-Validation currently covers file hashes, bounded chunks, timestamps, required
-objects and outbound safeguards. **Fresh Supabase replay and E2E are pending**;
-this snapshot is not a tested deployment certificate. Compatible local Supabase
+Validation covers file hashes, bounded chunks, timestamps, required objects and
+outbound safeguards. On 2026-10-27, fresh Supabase replay completed all 145 chunks
+after local portability corrections for `public`, the non-login coordinator role
+and Supabase-owned default ACLs. These corrections are not yet published. **E2E
+and users/fixtures remain pending**; replay is not a business-flow certificate. Compatible local Supabase
 must provide Auth, Storage, pg_net/Vault and listed extensions. Existing platform
 schemas are not replaced. Roles referenced by captured grants require the platform's
 normal role setup. Storage bucket metadata and test objects must be provisioned

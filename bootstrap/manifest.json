@@ -13,7 +13,7 @@
   "files": [
     {
       "file": "20261027000000_qa_baseline_000.sql",
-      "sha256": "eaae32740800599a6584fd84eac9b19d4d07e9793d5e718d1b9b5de3a67aa6d8"
+      "sha256": "b466c619f560389f0c51295a593613d867fd5fbcfcdf0002f4f475b24ab57a61"
     },
     {
       "file": "20261027000001_qa_baseline_001.sql",
@@ -585,16 +585,24 @@
     },
     {
       "file": "20261027000223_qa_baseline_143.sql",
-      "sha256": "735e17d9bc921e4c483f58af4b55928aa0a02c3c9046f65942f26ec13ca3cd46"
+      "sha256": "15ea74b615014f4cf7d7205e08ed5517bb868f00528dc00c0f197440c6eed1d5"
     },
     {
       "file": "20261027001000_qa_platform_customizations.sql",
       "sha256": "14a17bad2d1747551287e076e30414d2c9e32d4e29972856cc6b45d9e79c21f9"
     }
   ],
-  "validation": "static-only; fresh Supabase replay pending",
+  "validation": {
+    "state": "fresh-supabase-replay-passed-with-local-corrections",
+    "migrationsApplied": 145,
+    "runtime": "Supabase CLI 2.122.0 on isolated Azure QA",
+    "e2eVerified": false
+  },
   "platformCustomizations": {
     "authTriggers": 1,
     "storagePolicies": 13
-  }
+  },
+  "removedPlatformSettings": [
+    "default ACLs owned by supabase_admin; local Supabase initializes these"
+  ]
 }

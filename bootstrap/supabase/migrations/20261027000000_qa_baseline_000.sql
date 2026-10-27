@@ -2,6 +2,7 @@ SET search_path = '';
 SET check_function_bodies = false;
 SET row_security = off;
 -- Fresh QA Supabase only. Never apply this bootstrap to an existing database.
+CREATE ROLE apps_migration_coordinator NOLOGIN NOINHERIT NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS;
 CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA extensions;
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA extensions;
 CREATE EXTENSION IF NOT EXISTS pg_trgm WITH SCHEMA extensions;
@@ -61,7 +62,7 @@ CREATE SCHEMA private;
 -- Name: public; Type: SCHEMA; Schema: -; Owner: -
 --
 
-CREATE SCHEMA public;
+CREATE SCHEMA IF NOT EXISTS public;
 
 
 --

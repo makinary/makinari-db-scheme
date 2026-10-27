@@ -25,8 +25,11 @@ for function in ['user_can', 'current_user_site_role']:
 assert 'supabase_functions.http_request(' not in text
 assert 'QA workflow webhook rejected: non-local destination' in text
 assert 'CREATE TRIGGER on_auth_user_created' in text
+assert 'CREATE SCHEMA IF NOT EXISTS public;' in text
+assert 'CREATE ROLE apps_migration_coordinator NOLOGIN NOINHERIT NOSUPERUSER' in text
+assert 'ALTER DEFAULT PRIVILEGES FOR ROLE supabase_admin' not in text
 assert not re.search(r'^COPY |^INSERT INTO ', text, re.M)
 assert not re.search(r'^\\(?:un)?restrict', text, re.M)
 assert manifest['platformCustomizations']['storagePolicies'] == 13
 print(f'Static validation passed: {len(files)} chunks, manifest hashes, core objects, auth trigger, Storage policies and local webhook guard.')
-print('Fresh Supabase runtime replay is still required; no database or E2E pass is claimed.')
+print('This command validates static artifacts only. Consult manifest validation evidence for runtime replay; E2E is separate.')

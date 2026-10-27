@@ -16,6 +16,9 @@ def transform(text):
     for block in blocks:
         header = re.search(r'^-- Name: (.*)$', block, re.M)
         name = header.group(1) if header else 'preamble'
+        if name.startswith('DEFAULT PRIVILEGES ') and 'ALTER DEFAULT PRIVILEGES FOR ROLE supabase_admin ' in block:
+            removed.append(name)
+            continue
         if re.search(r'CREATE TRIGGER\s+messages_webhooks\b', block):
             removed.append(name)
             continue
@@ -35,8 +38,9 @@ def transform(text):
                 raise ValueError('Dispatcher shape changed; manual review required')
             block = block.replace(anchor, guard + anchor)
         block = re.sub(r'^\\(?:un)?restrict.*\n', '', block, flags=re.M)
+        block = block.replace('CREATE SCHEMA public;', 'CREATE SCHEMA IF NOT EXISTS public;')
         out.append(block)
-    if len(removed) != 1:
+    if sum('messages_webhooks' in name for name in removed) != 1:
         raise ValueError('Expected exactly one legacy external messages webhook')
     return out, removed
 
@@ -98,6 +102,7 @@ def build():
     if any(target.glob('*.sql')):
         raise ValueError('Bootstrap already exists; generate a new version instead of overwriting')
     preamble = """-- Fresh QA Supabase only. Never apply this bootstrap to an existing database.
+CREATE ROLE apps_migration_coordinator NOLOGIN NOINHERIT NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS;
 CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA extensions;
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA extensions;
 CREATE EXTENSION IF NOT EXISTS pg_trgm WITH SCHEMA extensions;
