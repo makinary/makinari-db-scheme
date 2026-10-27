@@ -2,6 +2,54 @@
 
 Source of truth for the Supabase database schema. Migrations and generated types live here.
 
+## Current fresh-QA bootstrap (2026-10-27)
+
+`bootstrap/` contains a schema-only capture of the current Makinari application's
+five schemas, split into bounded SQL migrations with a hash/provenance manifest.
+It includes current commerce tables, permission RPCs, grants, RLS, custom Auth
+profile trigger and Storage policies. No customer rows, Auth identities, Vault
+values, buckets or Storage objects were copied.
+
+Use this project **only for a fresh isolated QA Supabase**. It replaces replay of
+the historical migration directory for fresh QA; never apply it on top of an
+existing database. The historical migrations remain unchanged.
+
+The direct legacy messages webhook with embedded external configuration is omitted.
+The configurable workflow dispatcher retains its real behavior but accepts only
+local HTTP destinations. Configure the local receiver and secret separately; do
+not copy production Vault values. This intentionally differs from production
+outbound delivery while retaining business/RLS behavior.
+
+```bash
+python3 scripts/validate-bootstrap.py
+```
+
+Validation currently covers file hashes, bounded chunks, timestamps, required
+objects and outbound safeguards. **Fresh Supabase replay and E2E are pending**;
+this snapshot is not a tested deployment certificate. Compatible local Supabase
+must provide Auth, Storage, pg_net/Vault and listed extensions. Existing platform
+schemas are not replaced. Roles referenced by captured grants require the platform's
+normal role setup. Storage bucket metadata and test objects must be provisioned
+separately with synthetic data.
+
+The installer discovers `makinari-db-scheme/bootstrap` from its source repositories
+and verifies the manifest. Its QA command still requires schema acknowledgement
+and a fresh unused QA ID; production and previously applied migrations are untouched.
+
+## Private schema export
+
+`scripts/export-schema.cjs` reads local PostgreSQL variables from `.env.local` and
+exports schema-only DDL under ignored `.exports/` with private permissions. It can
+use the cached matching Session pooler when the direct project endpoint is IPv6-only.
+It never exports rows or platform-owned schemas. Raw function/trigger DDL may contain
+embedded secrets: review it privately, never commit the raw export. The exporter
+currently reuses the sibling frontend's installed dotenv and a PostgreSQL 17 binary
+directory (`PG_BIN` overrides the default); it is not a portable standalone CLI yet.
+
+`scripts/build-bootstrap.py` performs the reviewed transformations and preserves
+historical files. It refuses overwriting an existing bootstrap. Subsequent captures
+need explicit versioning/review, not editing an applied migration.
+
 ## Prerequisites
 
 - Node.js (for Supabase CLI)

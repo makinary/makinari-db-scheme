@@ -5,6 +5,7 @@ supabase/.temp/
 # Environment / secrets (if you add any later)
 .env
 .env.local
+.exports/
 .env.*.local
 
 # OS
