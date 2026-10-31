@@ -2,7 +2,7 @@
 
 Source of truth for the Supabase database schema. Migrations and generated types live here.
 
-## Current fresh-QA bootstrap (2026-10-27)
+## Current fresh-QA bootstrap (updated 2026-10-30)
 
 `bootstrap/` contains a schema-only capture of the current Makinari application's
 five schemas, split into bounded SQL migrations with a hash/provenance manifest.
@@ -10,7 +10,14 @@ It includes current commerce tables, permission RPCs, grants, RLS, custom Auth
 profile trigger and Storage policies. No customer rows, Auth identities, Vault
 values, buckets or Storage objects were copied.
 
-Use this project **only for a fresh isolated QA Supabase**. It replaces replay of
+The immutable 2026-10-27 capture is followed by 38 canonical forward migrations
+through `20261030220000_procurement_quotation_detail.sql`, including procurement,
+POS checkout cancellation and cloud document/session persistence. See
+[the QA update handoff](supabase/validation/20261030_qa_update.md) for validation
+scope and remaining installation/test gates. `bootstrap/upgrades-20261030.json`
+records upgrade hashes separately from the original capture provenance.
+
+Use `bootstrap/` **only for a fresh isolated QA Supabase**. It replaces replay of
 the historical migration directory for fresh QA; never apply it on top of an
 existing database. The historical migrations remain unchanged.
 
@@ -22,17 +29,26 @@ outbound delivery while retaining business/RLS behavior.
 
 ```bash
 python3 scripts/validate-bootstrap.py
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_validate_bootstrap.py
 ```
 
 Validation covers file hashes, bounded chunks, timestamps, required objects and
 outbound safeguards. On 2026-10-27, fresh Supabase replay completed all 145 chunks
 after local portability corrections for `public`, the non-login coordinator role
-and Supabase-owned default ACLs. These corrections are not yet published. **E2E
+and Supabase-owned default ACLs. That evidence covers the baseline only, not the
+38 added upgrades. **Full updated Supabase replay, E2E
 and users/fixtures remain pending**; replay is not a business-flow certificate. Compatible local Supabase
 must provide Auth, Storage, pg_net/Vault and listed extensions. Existing platform
 schemas are not replaced. Roles referenced by captured grants require the platform's
 normal role setup. Storage bucket metadata and test objects must be provisioned
 separately with synthetic data.
+
+The baseline exported no rows. Forward migrations additionally create the private
+`procurement-credentials` bucket and backfill replenishment queues and historical
+tender policy bindings from the target database itself; they contain no exported
+customer data. The installer packages the manifest-verified files in `bootstrap/`,
+not the historical migration directory. Publishing Git changes does not update an
+existing QA database. Never replay the captured baseline onto an existing target.
 
 The installer discovers `makinari-db-scheme/bootstrap` from its source repositories
 and verifies the manifest. Its QA command still requires schema acknowledgement

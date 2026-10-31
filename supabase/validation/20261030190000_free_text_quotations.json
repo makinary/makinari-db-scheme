@@ -1,0 +1,20 @@
+{
+  "project": "rnjgeloamtszdjplmqxy",
+  "version": "20261030190000",
+  "name": "procurement_free_text_quotations",
+  "appliedDateUtc": "2026-10-30",
+  "sha256": "b8f26c5e6d0bc4c692d8c6dc5d40230ab8474d22987a80c3984149be5722ef65",
+  "explicitUserApproval": true,
+  "singleTransaction": true,
+  "historyRecordedOnce": true,
+  "recordedSqlMatchesCanonical": true,
+  "replacedFunctionBodiesMatchCanonical": true,
+  "preflightBaselineDriftChecks": true,
+  "quotationRlsEnabled": true,
+  "quotationItemRlsEnabled": true,
+  "internalFunctionsDenyDirectExecution": true,
+  "submissionAuthenticatedExecutionRetained": true,
+  "remoteBusinessDataWrites": false,
+  "remoteAllowedPathSubmissionTest": false,
+  "localPostgresTestsPassed": 64
+}

@@ -1,0 +1,67 @@
+{
+  "status": "applied_verified",
+  "verifiedAtUtc": "2026-10-29T21:24:48.647205+00:00",
+  "projectRef": "rnjgeloamtszdjplmqxy",
+  "migration": "20261030140000_procurement_open_business_participation.sql",
+  "sha256": "4d43c81b7e7096531925d853b3fae4ae0b0684fa948a72679a5e4df64f67efb9",
+  "client": "PostgreSQL 17 psql",
+  "serverVersion": "17.6",
+  "connection": "Authorized .env.local; matching verified cached session pooler; SSL required; credentials not logged",
+  "transactionGuards": [
+    "advisory serialization",
+    "history table lock",
+    "5-second lock timeout",
+    "120-second statement timeout",
+    "complete prior history snapshot",
+    "12 expected function definition hashes",
+    "referenced columns/constraints/triggers snapshot",
+    "repeat history and partial-object refusal"
+  ],
+  "history": {
+    "kind": "history",
+    "name": "procurement_open_business_participation",
+    "sha256": "4d43c81b7e7096531925d853b3fae4ae0b0684fa948a72679a5e4df64f67efb9",
+    "version": "20261030140000",
+    "statement_count": 1
+  },
+  "unrelatedHistoryUnchanged": true,
+  "previousFunctionBaselinesMatched": 12,
+  "changedFunctionBodiesMatchedCanonical": 5,
+  "unchangedInspectedFunctions": 7,
+  "functionHashes": {
+    "attach_procurement_quotation_evidence(uuid,jsonb)": "7ba57aeea19127129d27d27a80087c50d2057e53a8c507086e679424ef055f1d",
+    "attach_procurement_quotation_proposal(uuid,uuid)": "bf8c6727f0ece3fd73160059a4c9868ba9c7df2fcc81de82f19e6e204d3142fa",
+    "capture_procurement_quotation(uuid,jsonb,text)": "5b1fd337a1c96da60048031331af20257f37583e30b793db5fcd1c6e93b3322a",
+    "current_user_site_role(uuid)": "defe628b3e601d1b09d6da6b8d51b9eb3a5f1a179c6bc0fcb41a368d0880ef33",
+    "my_procurement_participation()": "489e98534940681396827adb69f337c6bc03c792ab530bc82f4998b5d6d1488d",
+    "procurement_business_access(uuid,uuid)": "626706df3da4e868d348d4485306f6eb8fc191b7fd5b0b1ac7cea6be1b3d5e94",
+    "procurement_can_represent(uuid,uuid)": "050cfec6d83d208ad3fe8fd9f8a75e7f81c503e0e24c9434ae93466158e8db97",
+    "procurement_self_participation(uuid,uuid,uuid,uuid)": "c8a2082a969a760040f997d8283bfa13ad20d44afbb4c116dbc1cdb505b7b584",
+    "procurement_supplier_proposal_count(uuid,uuid)": "13ed40dd7a4b18a87f7de5f5e677ec88f4453bde2c581e244e295f1015f94cef",
+    "procurement_validate_commerce_event(uuid,uuid,integer,text)": "22b0d83b1f1883500224b162b93d96ad1f144d0a433eb36cb4832f45966dbf1e",
+    "register_open_tender_business(uuid,uuid)": "787474c5e71f0cf5440bac6fd9fdba07ed053c697626f491f3124a03aef29a51",
+    "reject_procurement_policy_history_mutation()": "541af59649025dbba1334fb90a84c70026a6cc732ccff8d1a5dd1254154170a9",
+    "site_member_has_effective_license(uuid)": "45071b6c53086723ac23ecb0682470fbb4e4d7ca7d84410b3451f7e3f77bfcc2",
+    "submit_procurement_quotation(uuid,jsonb)": "ff65e8396767e8f8364d165c4aacf421e69431b2bf804dea02f1eeb91e243951"
+  },
+  "security": [
+    "RLS enabled; no direct policies",
+    "No PUBLIC, anon, authenticated or service_role table grants",
+    "Authenticated EXECUTE only on registration, submission and opportunity listing",
+    "Internal helper execution denied",
+    "All five affected functions SECURITY DEFINER with pinned public, pg_temp search path and postgres owner",
+    "Enabled immutable UPDATE/DELETE/TRUNCATE statement trigger",
+    "Authenticated and anonymous direct reads denied under SET LOCAL ROLE",
+    "New business registration table empty"
+  ],
+  "licensing": "Existing site_member_has_effective_license and current_user_site_role match startup trial licensing migration. Helper excludes archived sites and manually disabled/unlicensed members; business predicate additionally requires active membership. Owner access follows existing role semantics.",
+  "tests": {
+    "source": "/tmp/business-participation-regression-final.log",
+    "suitesPassed": 5,
+    "testsPassed": 63,
+    "note": "Backend agent supplied local isolated PostgreSQL 18 business regression evidence; not rerun remotely."
+  },
+  "canonicalCopyByteIdentical": true,
+  "remoteBusinessRegistrationsCreated": 0,
+  "scope": "Only this migration plus its exact full canonical SQL history insert. No remote registration RPC calls, fixtures, UI edits, builds, commits or deployments."
+}

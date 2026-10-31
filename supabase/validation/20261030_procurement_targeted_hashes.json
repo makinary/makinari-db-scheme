@@ -1,0 +1,10 @@
+[
+  {
+    "file": "20261030120000_procurement_open_self_participation.sql",
+    "sha256": "449bfbcb56f031251d969683d94ac4e88f9f4444c2244ef639724da7d18ab764"
+  },
+  {
+    "file": "20261030130000_procurement_proposal_attachments.sql",
+    "sha256": "0a9936ec56f1717d9d9634ac3a11d7ab3ae3c3efc15ae6eb93d38b8ea1ce4268"
+  }
+]

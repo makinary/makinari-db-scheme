@@ -1,0 +1,184 @@
+{
+  "baselineLastVersion": "20261027001000",
+  "updatedAt": "2026-10-30",
+  "state": "static-and-focused-regressions-passed",
+  "fullSupabaseReplayVerified": false,
+  "e2eVerified": false,
+  "sources": [
+    "market-fit/supabase/migrations",
+    "makinari-db-scheme/supabase/migrations (cloud)"
+  ],
+  "allowedTopLevelInsertFiles": [
+    "20261027174001_procurement_credentials.sql",
+    "20261028010001_procurement_replenishment_queue.sql",
+    "20261028020000_procurement_lifecycle_repair.sql"
+  ],
+  "files": [
+    {
+      "file": "20261027160000_procurement_policy_versions.sql",
+      "sha256": "72a0714de32c8cf8e8ef1b3615ccfe631ab1501b5af21e72138b6a4df17e5b14"
+    },
+    {
+      "file": "20261027170000_procurement_suppliers.sql",
+      "sha256": "1797efca1fe8ac8853993b5ef56cf7806c8d15c229d973a1d6e1efc3cf356d3f"
+    },
+    {
+      "file": "20261027171000_procurement_requests.sql",
+      "sha256": "d985fd30629b92ad4e5015cb217f0ed3a6514e44c5f046163b8542881e44d911"
+    },
+    {
+      "file": "20261027172000_procurement_tenders.sql",
+      "sha256": "d949d9e4a23c0c8b6c05be4c1c65f3fac710986a23228517284d9866cf8cf87f"
+    },
+    {
+      "file": "20261027172001_procurement_tender_publications.sql",
+      "sha256": "b5b30e2d8d9a4d03dcd206a32d5ce2adf556458702b32ef3fb91936caf50bf09"
+    },
+    {
+      "file": "20261027172002_procurement_event_approvals.sql",
+      "sha256": "2aed3c57d0ce918bf39012685361114f06feac3e7f311a50aaa477086d2af8b3"
+    },
+    {
+      "file": "20261027173000_procurement_quotation_boundary.sql",
+      "sha256": "ce5d5c5016386bfb527035ec00e1681b3486abfae8537f0c89e36357726dc620"
+    },
+    {
+      "file": "20261027173001_procurement_quotation_capture.sql",
+      "sha256": "38bf3188554ce912b75080aa9a041f35fbd69cfe7d8b9f4a258c7840bb6e0e08"
+    },
+    {
+      "file": "20261027173002_procurement_orders.sql",
+      "sha256": "22561faf4f7350a889967ab276465c1be563d80cc511ac024b8a98947e46dc84"
+    },
+    {
+      "file": "20261027173003_procurement_commerce_approvals.sql",
+      "sha256": "dacfbc9ac3bcec0524d80cda2c17806fe9d908eac0d869016fe123e5cdc9ccab"
+    },
+    {
+      "file": "20261027173004_procurement_commerce_reads.sql",
+      "sha256": "eabedb9af29b27e4ffec9da87fcc77ef56849bc09f550e3608e9f993dd956fdf"
+    },
+    {
+      "file": "20261027173005_procurement_supplier_submissions.sql",
+      "sha256": "cd2e0a72db1688c97fc15c458af243360efa611c623cda534c8f48b8c8a663ef"
+    },
+    {
+      "file": "20261027174000_procurement_supplier_representation.sql",
+      "sha256": "731857b9d508e7d0885a781a26e5e6fdfeb9aa54194462a640a88ce3565fbddc"
+    },
+    {
+      "file": "20261027174001_procurement_credentials.sql",
+      "sha256": "2721dfbdb12b4b0a47abb4f197185423b7e2858d4423bdab61826e06ccb00b74"
+    },
+    {
+      "file": "20261027174200_procurement_submission_evidence.sql",
+      "sha256": "ec5d6098c0e4b8bca957f3dc18b6920a6d6a88ec9240f2dfa9fde511e58ab6e6"
+    },
+    {
+      "file": "20261027175000_catalog_procurement.sql",
+      "sha256": "870a618caea58580f9082ea097ba9719bb67035d665621b3ddc649cc8706ac22"
+    },
+    {
+      "file": "20261027190000_pos_checkout_cancel.sql",
+      "sha256": "3e738d67831ab36baae080f9c64f77259d3e3395ef7414d8efa618adc6352dfb"
+    },
+    {
+      "file": "20261028001000_procurement_approval_revalidation.sql",
+      "sha256": "b3ea5234704b1c95140b7ce2a50eccdae67ad8d07294e91739205658559133d1"
+    },
+    {
+      "file": "20261028010000_procurement_replenishment.sql",
+      "sha256": "116a2502dc6ac44b87287adf0de0e4a4722d812b08960091e8be8e7c71423695"
+    },
+    {
+      "file": "20261028010001_procurement_replenishment_queue.sql",
+      "sha256": "eba07ee23cd14924ecc13d3df1177283ab43bdc56e81cd936a1d92a0886560c3"
+    },
+    {
+      "file": "20261028020000_procurement_lifecycle_repair.sql",
+      "sha256": "b49967b090f7f6e7d7028760e70d88ef9f4d18152166b22b1e00cc58bf5004e9"
+    },
+    {
+      "file": "20261028020001_procurement_commerce_lifecycle_repair.sql",
+      "sha256": "e5943f714aef82aa9a864c02a553893a849133bbf3f9e404d94a09f033ee47e6"
+    },
+    {
+      "file": "20261028021000_procurement_replenishment_repair.sql",
+      "sha256": "a04575f8e78612562d3380836b217f7154edfbfff3add291738ae6a8a1ef8d47"
+    },
+    {
+      "file": "20261028200000_procurement_default_manager_decisions.sql",
+      "sha256": "29657a0b796772b07f6a1e8dd0a86ecefab0f35631c357556804bec5f1a82475"
+    },
+    {
+      "file": "20261029120000_procurement_deprecated_approvals.sql",
+      "sha256": "6df16e4da3203a4816561b0174af65ae94b577a74439bb8cbfe60eed844863f1"
+    },
+    {
+      "file": "20261030010000_cloud_document_persistence.sql",
+      "sha256": "b65ad2f15756c437616aa75d4e9e53fda86551fccce7793ec6a88380e62a9c5f"
+    },
+    {
+      "file": "20261030020000_cloud_requirement_sessions.sql",
+      "sha256": "db2b696474de7883c861e8852c9e684e0f0d1a3326c61d1bff97e34fc6d5cb70"
+    },
+    {
+      "file": "20261030120000_procurement_open_self_participation.sql",
+      "sha256": "449bfbcb56f031251d969683d94ac4e88f9f4444c2244ef639724da7d18ab764"
+    },
+    {
+      "file": "20261030130000_procurement_proposal_attachments.sql",
+      "sha256": "0a9936ec56f1717d9d9634ac3a11d7ab3ae3c3efc15ae6eb93d38b8ea1ce4268"
+    },
+    {
+      "file": "20261030140000_procurement_open_business_participation.sql",
+      "sha256": "4d43c81b7e7096531925d853b3fae4ae0b0684fa948a72679a5e4df64f67efb9"
+    },
+    {
+      "file": "20261030150000_workspace_quotation_reads.sql",
+      "sha256": "4d0481c0f426291ccba8b145a8a5681eb147b3bda3d2a528cd0cdc4d8a0b521e"
+    },
+    {
+      "file": "20261030160000_procurement_decision_replay.sql",
+      "sha256": "4c444df8d458989f0319324dc86701e35b5a35b22cff7fc2050db9f19f2da46a"
+    },
+    {
+      "file": "20261030170000_procurement_submission_drafts.sql",
+      "sha256": "c8bf3295fdf7109849192d68b5b2a637ff5baff62ab91f4c613178df6daf8af2"
+    },
+    {
+      "file": "20261030180000_procurement_submission_draft_list.sql",
+      "sha256": "610256e8b80d962f8df650fb64bdd92c012b9092c27fc4491ec9ac20ad8f69f8"
+    },
+    {
+      "file": "20261030190000_procurement_free_text_quotations.sql",
+      "sha256": "b8f26c5e6d0bc4c692d8c6dc5d40230ab8474d22987a80c3984149be5722ef65"
+    },
+    {
+      "file": "20261030200000_procurement_quotation_envelopes.sql",
+      "sha256": "736ee18f4d71a8132dccd3423d849ac31bae7b540bf26686046fbfa0201da6c5"
+    },
+    {
+      "file": "20261030210000_procurement_receipt_activity.sql",
+      "sha256": "ef205197ef2f92b7016b57bdcc3a19d9e966fb225e14d05993d249db5f65093e"
+    },
+    {
+      "file": "20261030220000_procurement_quotation_detail.sql",
+      "sha256": "8b6155e2f5ce3d67e46e1c7f0f9dba747a04db10a1bea4f539622124234e2b6e"
+    }
+  ],
+  "validation": {
+    "bootstrapValidatorTestsPassed": 6,
+    "installerSchemaPreflightPassed": true,
+    "procurementSuitesPassed": 11,
+    "procurementTestsPassed": 103,
+    "cloudJestSuitesPassed": 10,
+    "cloudJestTestsPassed": 174,
+    "cloudOfflineSqlToolTestsPassed": 16,
+    "qaProvisioningTestsPassed": 44,
+    "failures": 0,
+    "skippedTests": 0,
+    "fullSupabaseReplayVerified": false,
+    "e2eVerified": false
+  }
+}
