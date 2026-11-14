@@ -1,17 +1,20 @@
 {
   "baselineLastVersion": "20261027001000",
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-14",
   "state": "static-and-focused-regressions-passed",
   "fullSupabaseReplayVerified": false,
   "e2eVerified": false,
   "sources": [
     "market-fit/supabase/migrations",
-    "makinari-db-scheme/supabase/migrations (cloud)"
+    "makinari-db-scheme/supabase/migrations (cloud)",
+    "API/supabase/migrations"
   ],
   "allowedTopLevelInsertFiles": [
     "20261027174001_procurement_credentials.sql",
     "20261028010001_procurement_replenishment_queue.sql",
-    "20261028020000_procurement_lifecycle_repair.sql"
+    "20261028020000_procurement_lifecycle_repair.sql",
+    "20261112021000_openrouter_command_routing.sql",
+    "20261112022000_openrouter_plan_routing.sql"
   ],
   "files": [
     {
@@ -165,6 +168,166 @@
     {
       "file": "20261030220000_procurement_quotation_detail.sql",
       "sha256": "8b6155e2f5ce3d67e46e1c7f0f9dba747a04db10a1bea4f539622124234e2b6e"
+    },
+    {
+      "file": "20261030230000_procurement_storage_admission.sql",
+      "sha256": "997bc76693b46baa33897fe21f6739f788516eda9670dcd34f210861691bcd52"
+    },
+    {
+      "file": "20261103210000_requirement_created_or_updated_scope.sql",
+      "sha256": "f971ec91d47c4c093e4a88764636d65ebc1e5c49d703f8805a6de817df1f8a9d"
+    },
+    {
+      "file": "20261104110000_requirement_site_credit_admission.sql",
+      "sha256": "c00a1624b729b00426eb0d63a6dcffc780bb1a04bcc634cfe387a86fe36ef308"
+    },
+    {
+      "file": "20261104111000_missing_requirement_workspace_recovery.sql",
+      "sha256": "b02e55293d3f67bf1b7660198146301511b12d7d28f49feee2ecbd27c500fe60"
+    },
+    {
+      "file": "20261105193000_customer_support_inbound_commands.sql",
+      "sha256": "4ed8cc9a534bb3711653bb0747dcd68e13f3b47847181803967ebe9b8154b0c5"
+    },
+    {
+      "file": "20261105200000_customer_support_audio.sql",
+      "sha256": "28e62a4e03f622af725376446dc66da01a7c9584b3776b7a6467bbad048b4c45"
+    },
+    {
+      "file": "20261106104500_sandbox_insufficient_funding_outcome.sql",
+      "sha256": "6741acdda6568f022967f3480f6f95849fea8fbcc04fe57690c9e0b3d59e3a36"
+    },
+    {
+      "file": "20261110230000_conversation_automation_snooze.sql",
+      "sha256": "3d1090a292077ad75be3ce66f408c41a2509f570b95fafe0105560c8db5a6df5"
+    },
+    {
+      "file": "20261111010000_task_creation_idempotency.sql",
+      "sha256": "0bd1ff2aee0896ad7784c5ff0c9fd7bea51443cae6c7bdda5034a86f46742d78"
+    },
+    {
+      "file": "20261111032000_records_relation_admission.sql",
+      "sha256": "784bbaa4711fdbf0910b4f8a9be8e2c61b61b6435a79361467163f3ec0621626"
+    },
+    {
+      "file": "20261111032100_records_trash_storage.sql",
+      "sha256": "2db0fb4b5647a38cd0da0652343ff8c634ce392655be990fe28792fb2ff65575"
+    },
+    {
+      "file": "20261111032200_records_trash_rpc.sql",
+      "sha256": "de6cf9804c3aed45cf5d67526d9e2291b04c67082e90c8e0d5bf532cd033c263"
+    },
+    {
+      "file": "20261111032300_records_trash_embeddings.sql",
+      "sha256": "6f87aff14c8717b2bf7cf438861970ed3d08dac29e4283e0995bdc83d85ed57f"
+    },
+    {
+      "file": "20261111040000_lead_site_automation_snooze.sql",
+      "sha256": "cfb0351e79298e69c3ede3194536972288df40e0cfdadba9fffb8124ac730e75"
+    },
+    {
+      "file": "20261111210000_asset_owner_admission.sql",
+      "sha256": "9f0be62574396bc59ab9e9bbbe92172693d874e7ed2b8bd9097e92e6dff4a5eb"
+    },
+    {
+      "file": "20261111220000_first_contact_whatsapp_snooze.sql",
+      "sha256": "7e64eda5d2fda34c1b1e102f5ec70311be7f1a49cee4bdb3d7bb4b70810823cc"
+    },
+    {
+      "file": "20261111223000_instance_asset_summaries.sql",
+      "sha256": "cb12047cfe6f51cf0c4f07236a670cccb3ec4acce8df12f473d8b52ca0de00d6"
+    },
+    {
+      "file": "20261112010000_openrouter_customer_connections.sql",
+      "sha256": "59314b5cb3f29024337eaf631ae586246b1618e6ae0a5f328431c4df1549dd38"
+    },
+    {
+      "file": "20261112020000_openrouter_runtime_dispatch.sql",
+      "sha256": "219140fe5e5c29a4a8e8b31a6e691a34cf2c041fff01c3fedad7eb3fe63a7d2d"
+    },
+    {
+      "file": "20261112021000_openrouter_command_routing.sql",
+      "sha256": "ef8c808be1656449e954ee5badf49c136bc1ad824091b85e4598acbea8abc1e0"
+    },
+    {
+      "file": "20261112022000_openrouter_plan_routing.sql",
+      "sha256": "5c086c2b7514991055fb841646f41bb938fc90f66a3810f179a9262a2e7d2df4"
+    },
+    {
+      "file": "20261112030000_openrouter_setup.sql",
+      "sha256": "ec50624903a9ab08c7467769875ad21f090688d78fa73ee3d19372ed881161e7"
+    },
+    {
+      "file": "20261112040000_openrouter_pilot_approval.sql",
+      "sha256": "ea5c98a2eb6fecb00f49223bf3137118a04b4d6adeed469ceb606f0f001e4044"
+    },
+    {
+      "file": "20261112050000_openrouter_dispatch_attribution.sql",
+      "sha256": "2e23960b30e9bac93bdc8aab159faf182c9a650e8d34368451eb1831165c601d"
+    },
+    {
+      "file": "20261112060000_openrouter_customer_video_jobs.sql",
+      "sha256": "0cd0bd5beb70709c73323ff32f5a3c89a86d9a574d12d8ab467b3bcb1b87cedc"
+    },
+    {
+      "file": "20261112071000_requirement_plan_private_routing.sql",
+      "sha256": "6395894627916634b76bba81964976cbc5d818938e302f723a415a909c589f13"
+    },
+    {
+      "file": "20261112072000_openrouter_customer_video_durability.sql",
+      "sha256": "c09ecb1afdc421cb24f4c53ff65c0bc61fdc6a26998b7c1f580d322cf907356b"
+    },
+    {
+      "file": "20261113160000_instance_ownership_rls.sql",
+      "sha256": "12ab9ce238cf270209de85788270fb47fca991fbe6433974d972219d9820a152"
+    },
+    {
+      "file": "20261113170000_inventory_movements.sql",
+      "sha256": "a9cad52ff20fce97e66b37a2664cba6936e6bb590196567c813d5563ef5579d4"
+    },
+    {
+      "file": "20261113180000_atomic_catalog_item_requirement.sql",
+      "sha256": "8e096d33cd8b777504ffd968a37829eebabf02f560fe3beabc492915f07f70da"
+    },
+    {
+      "file": "20261113190000_inventory_writer_coordination.sql",
+      "sha256": "589f103613e7bd0774ca57043f1481b7fcfef6c2e26c103c0364916c62303255"
+    },
+    {
+      "file": "20261113200000_inventory_receiving_responsibility.sql",
+      "sha256": "bc6008c980c231ee0d3e212c8f6fe0e9336c28417989ec01c88db6ee165c5c2b"
+    },
+    {
+      "file": "20261113210000_inventory_transfer_orders.sql",
+      "sha256": "d2548e821c1023b0bb834ace8a048da9f8c9ee9a380c3e46c72163d843776819"
+    },
+    {
+      "file": "20261113210100_inventory_transfer_legacy_projection.sql",
+      "sha256": "3c0dfc7c5b269214bb360740ddee6ae9c4120a4f1430d396ac1a80ad37fc9afc"
+    },
+    {
+      "file": "20261113210150_inventory_transfer_partial_dispatch.sql",
+      "sha256": "c0bf59684b7903c22d3d6862658318059510590ef32a4d7cbe673e8348958b98"
+    },
+    {
+      "file": "20261113210200_partial_bill_inventory_receipts.sql",
+      "sha256": "62c3b9cfe1e4f9f675e4a7344ed896f47da60d06d86b5642760657d859f00f77"
+    },
+    {
+      "file": "20261113210300_inventory_transfer_stock_events.sql",
+      "sha256": "9e1fe4099d7745b5e0a91d409bd66274bc4b535418024e5a135e72ef02ef981c"
+    },
+    {
+      "file": "20261113210400_inventory_receipt_write_boundary.sql",
+      "sha256": "0660aeb2ae113eb4d551ab71920f95ce2f1b8b9cd7e7a64365243e55357dacf9"
+    },
+    {
+      "file": "20261113210500_accounting_preserve_received_bill_lines.sql",
+      "sha256": "62bf70a92c155b7a2e4c4acd51f880ec3631be6f926c0707f24d68993e5073f4"
+    },
+    {
+      "file": "20261114000000_order_line_inventory_receipts.sql",
+      "sha256": "6629124a4d1e42ed831ee275b2bf52b0ca2643e3446fdaba199c764def61e622"
     }
   ],
   "validation": {
@@ -179,6 +342,8 @@
     "failures": 0,
     "skippedTests": 0,
     "fullSupabaseReplayVerified": false,
-    "e2eVerified": false
-  }
+    "e2eVerified": false,
+    "storageAdmissionPostgresTestsPassed": 50
+  },
+  "migrationCount": 78
 }

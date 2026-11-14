@@ -1,0 +1,46 @@
+{
+  "target": "rnjgeloamtszdjplmqxy",
+  "migration": "20261114000000_order_line_inventory_receipts.sql",
+  "committed_at": "2026-11-14T03:51:06.407837+00:00",
+  "verified_at": "2026-11-14T03:51:17.126257+00:00",
+  "sha256": "6629124a4d1e42ed831ee275b2bf52b0ca2643e3446fdaba199c764def61e622",
+  "exact_source": true,
+  "tls": true,
+  "security": {
+    "rls": true,
+    "anon_select": false,
+    "authenticated_write": false,
+    "service_write": false
+  },
+  "rpc_execute": [
+    {
+      "signature": "public.seed_order_line_inventory_receipt()",
+      "authenticated": false,
+      "anon": false,
+      "service_role": false
+    },
+    {
+      "signature": "public.reconcile_order_line_inventory(uuid,uuid,uuid,uuid,numeric,text)",
+      "authenticated": true,
+      "anon": false,
+      "service_role": true
+    },
+    {
+      "signature": "public.resolve_order_line_inventory_review(uuid,uuid,uuid,uuid,numeric,numeric,numeric,text)",
+      "authenticated": false,
+      "anon": false,
+      "service_role": true
+    }
+  ],
+  "seed_trigger": 1,
+  "invalid_constraints": 0,
+  "policy_count": 1,
+  "row_counts": {
+    "stock_levels": 2,
+    "order_lines": 1194,
+    "orders": 609
+  },
+  "receipt_count": 0,
+  "remote_business_mutation_tested": false,
+  "historical_reconciliation_performed": false
+}

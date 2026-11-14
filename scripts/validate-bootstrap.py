@@ -31,6 +31,8 @@ def validate(root):
         '20261027174001_procurement_credentials.sql',
         '20261028010001_procurement_replenishment_queue.sql',
         '20261028020000_procurement_lifecycle_repair.sql',
+        '20261112021000_openrouter_command_routing.sql',
+        '20261112022000_openrouter_plan_routing.sql',
     }, 'Unexpected backfill allowlist'
     versions = set()
     for entry in manifest['files']:

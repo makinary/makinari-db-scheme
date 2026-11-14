@@ -1,0 +1,64 @@
+{
+  "projectRef": "rnjgeloamtszdjplmqxy",
+  "committedAt": "2026-11-12T20:28:41.078798Z",
+  "independentlyVerifiedAt": "2026-11-12T20:29:08.052863+00:00",
+  "migrationCount": 10,
+  "files": [
+    {
+      "file": "20261112071000_requirement_plan_private_routing.sql",
+      "sha256": "6395894627916634b76bba81964976cbc5d818938e302f723a415a909c589f13"
+    },
+    {
+      "file": "20261112010000_openrouter_customer_connections.sql",
+      "sha256": "59314b5cb3f29024337eaf631ae586246b1618e6ae0a5f328431c4df1549dd38"
+    },
+    {
+      "file": "20261112020000_openrouter_runtime_dispatch.sql",
+      "sha256": "219140fe5e5c29a4a8e8b31a6e691a34cf2c041fff01c3fedad7eb3fe63a7d2d"
+    },
+    {
+      "file": "20261112021000_openrouter_command_routing.sql",
+      "sha256": "ef8c808be1656449e954ee5badf49c136bc1ad824091b85e4598acbea8abc1e0"
+    },
+    {
+      "file": "20261112022000_openrouter_plan_routing.sql",
+      "sha256": "5c086c2b7514991055fb841646f41bb938fc90f66a3810f179a9262a2e7d2df4"
+    },
+    {
+      "file": "20261112030000_openrouter_setup.sql",
+      "sha256": "ec50624903a9ab08c7467769875ad21f090688d78fa73ee3d19372ed881161e7"
+    },
+    {
+      "file": "20261112040000_openrouter_pilot_approval.sql",
+      "sha256": "ea5c98a2eb6fecb00f49223bf3137118a04b4d6adeed469ceb606f0f001e4044"
+    },
+    {
+      "file": "20261112050000_openrouter_dispatch_attribution.sql",
+      "sha256": "2e23960b30e9bac93bdc8aab159faf182c9a650e8d34368451eb1831165c601d"
+    },
+    {
+      "file": "20261112060000_openrouter_customer_video_jobs.sql",
+      "sha256": "0cd0bd5beb70709c73323ff32f5a3c89a86d9a574d12d8ab467b3bcb1b87cedc"
+    },
+    {
+      "file": "20261112072000_openrouter_customer_video_durability.sql",
+      "sha256": "c09ecb1afdc421cb24f4c53ff65c0bc61fdc6a26998b7c1f580d322cf907356b"
+    }
+  ],
+  "exactSourceHistory": true,
+  "allForeignKeysValidated": true,
+  "allIndexesValid": true,
+  "newTablesRlsEnabled": true,
+  "clientPrivilegesDenied": true,
+  "customerConnections": 0,
+  "rolloutApprovals": 0,
+  "backfilledCommandPins": 375468,
+  "backfilledPlanPins": 2384,
+  "byokActivated": false,
+  "providerCallsPerformed": false,
+  "notes": [
+    "First attempt fully rolled back on statement timeout.",
+    "Unapplied command FK validation revised to set-wise validation before successful application.",
+    "Application deployment and authorized live acceptance remain pending."
+  ]
+}

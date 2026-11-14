@@ -22,7 +22,7 @@ class BootstrapValidationTests(unittest.TestCase):
         shutil.copytree(ROOT / 'supabase/migrations', self.root / 'supabase/migrations')
 
     def test_current_bootstrap_and_upgrades(self):
-        self.assertEqual(VALIDATOR.validate(self.root), (183, 38))
+        self.assertEqual(VALIDATOR.validate(self.root), (223, 78))
 
     def test_duplicate_manifest_entry_is_rejected(self):
         path = self.root / 'bootstrap/manifest.json'
@@ -47,6 +47,18 @@ class BootstrapValidationTests(unittest.TestCase):
         sql = 'CREATE FUNCTION f() RETURNS void AS $body$ BEGIN\nINSERT INTO x VALUES(1); END $body$ LANGUAGE plpgsql;'
         self.assertNotIn('INSERT', VALIDATOR.top_level_sql(sql))
         self.assertIn('INSERT', VALIDATOR.top_level_sql(sql + '\nINSERT INTO y VALUES(2);'))
+
+    def test_openrouter_backfills_only_private_platform_attribution(self):
+        for filename, target, source in [
+            ('20261112021000_openrouter_command_routing.sql', 'openrouter_command_routing', 'commands'),
+            ('20261112022000_openrouter_plan_routing.sql', 'openrouter_plan_routing', 'instance_plans'),
+        ]:
+            top = VALIDATOR.top_level_sql((self.root / 'supabase/migrations' / filename).read_text())
+            self.assertEqual(top.upper().count('INSERT INTO'), 1)
+            self.assertIn('INSERT INTO public.' + target, top)
+            self.assertIn('FROM public.' + source, top)
+            self.assertIn("'payer','platform'", top.replace(' ', ''))
+            self.assertNotRegex(top, r'(?im)^\s*(?:UPDATE|DELETE\s+FROM|TRUNCATE)\b')
 
     def test_unreviewed_insert_rejected_even_with_matching_hashes(self):
         name = '20261030220000_procurement_quotation_detail.sql'

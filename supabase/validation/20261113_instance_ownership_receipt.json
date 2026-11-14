@@ -1,0 +1,131 @@
+{
+  "verified_at": "2026-11-13T21:26:47.54149+00:00",
+  "history": [
+    {
+      "version": "20261113160000",
+      "name": "instance_ownership_rls",
+      "exact_source": true
+    },
+    {
+      "version": "20261113180000",
+      "name": "atomic_catalog_item_requirement",
+      "exact_source": true
+    }
+  ],
+  "policies": [
+    {
+      "table": "assets",
+      "count": 5
+    },
+    {
+      "table": "automation_auth_sessions",
+      "count": 5
+    },
+    {
+      "table": "catalog_item_requirements",
+      "count": 5
+    },
+    {
+      "table": "cloud_file_operations",
+      "count": 5
+    },
+    {
+      "table": "cloud_files",
+      "count": 5
+    },
+    {
+      "table": "instance_artifacts",
+      "count": 5
+    },
+    {
+      "table": "instance_context_memories",
+      "count": 5
+    },
+    {
+      "table": "instance_context_state",
+      "count": 5
+    },
+    {
+      "table": "instance_logs",
+      "count": 5
+    },
+    {
+      "table": "instance_node_contexts",
+      "count": 5
+    },
+    {
+      "table": "instance_nodes",
+      "count": 5
+    },
+    {
+      "table": "instance_pending_work",
+      "count": 5
+    },
+    {
+      "table": "instance_plan_step_infrastructure_events",
+      "count": 5
+    },
+    {
+      "table": "instance_plans",
+      "count": 5
+    },
+    {
+      "table": "remote_instances",
+      "count": 5
+    },
+    {
+      "table": "remote_sessions",
+      "count": 5
+    },
+    {
+      "table": "requirement_status",
+      "count": 5
+    },
+    {
+      "table": "site_secrets",
+      "count": 5
+    },
+    {
+      "table": "workflow_runs",
+      "count": 5
+    },
+    {
+      "table": "workflow_triggers",
+      "count": 5
+    }
+  ],
+  "all_restrictive": true,
+  "all_rls": true,
+  "atomic_invoker": true,
+  "atomic_execute": {
+    "anon": false,
+    "authenticated": true,
+    "service_role": false
+  },
+  "browser_truncate": false,
+  "instance_rows": 1064,
+  "target": "rnjgeloamtszdjplmqxy",
+  "committed_at": "2026-11-13T21:26:40.148628Z",
+  "smoke": {
+    "checked_at": "2026-11-13T21:28:05.120Z",
+    "restricted_members_checked": 1,
+    "results": [
+      {
+        "visible_instances": 2,
+        "foreign_visible_instances": 0,
+        "foreign_direct_instance": 0,
+        "foreign_direct_log": 0
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "file": "20261113160000_instance_ownership_rls.sql",
+      "sha256": "12ab9ce238cf270209de85788270fb47fca991fbe6433974d972219d9820a152"
+    },
+    {
+      "file": "20261113180000_atomic_catalog_item_requirement.sql",
+      "sha256": "8e096d33cd8b777504ffd968a37829eebabf02f560fe3beabc492915f07f70da"
+    }
+  ]
+}

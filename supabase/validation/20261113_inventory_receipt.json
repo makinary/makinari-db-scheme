@@ -1,0 +1,208 @@
+{
+  "target": "rnjgeloamtszdjplmqxy",
+  "committed_at": "2026-11-13T23:30:57.997618+00:00",
+  "verified_at": "2026-11-13T23:31:31.122946+00:00",
+  "migrations": [
+    {
+      "version": "20261113170000",
+      "name": "inventory_movements",
+      "exact_source": true
+    },
+    {
+      "version": "20261113190000",
+      "name": "inventory_writer_coordination",
+      "exact_source": true
+    },
+    {
+      "version": "20261113200000",
+      "name": "inventory_receiving_responsibility",
+      "exact_source": true
+    },
+    {
+      "version": "20261113210000",
+      "name": "inventory_transfer_orders",
+      "exact_source": true
+    },
+    {
+      "version": "20261113210100",
+      "name": "inventory_transfer_legacy_projection",
+      "exact_source": true
+    },
+    {
+      "version": "20261113210150",
+      "name": "inventory_transfer_partial_dispatch",
+      "exact_source": true
+    },
+    {
+      "version": "20261113210200",
+      "name": "partial_bill_inventory_receipts",
+      "exact_source": true
+    },
+    {
+      "version": "20261113210300",
+      "name": "inventory_transfer_stock_events",
+      "exact_source": true
+    },
+    {
+      "version": "20261113210400",
+      "name": "inventory_receipt_write_boundary",
+      "exact_source": true
+    },
+    {
+      "version": "20261113210500",
+      "name": "accounting_preserve_received_bill_lines",
+      "exact_source": true
+    }
+  ],
+  "tables": [
+    {
+      "name": "inventory_movements",
+      "rls": true,
+      "forced": false,
+      "anon_select": false,
+      "authenticated_write": false
+    },
+    {
+      "name": "inventory_operation_requests",
+      "rls": true,
+      "forced": false,
+      "anon_select": false,
+      "authenticated_write": false
+    },
+    {
+      "name": "inventory_transfer_events",
+      "rls": true,
+      "forced": false,
+      "anon_select": false,
+      "authenticated_write": false
+    },
+    {
+      "name": "inventory_transfer_lines",
+      "rls": true,
+      "forced": false,
+      "anon_select": false,
+      "authenticated_write": false
+    },
+    {
+      "name": "inventory_transfer_orders",
+      "rls": true,
+      "forced": false,
+      "anon_select": false,
+      "authenticated_write": false
+    },
+    {
+      "name": "inventory_transfer_requests",
+      "rls": true,
+      "forced": false,
+      "anon_select": false,
+      "authenticated_write": false
+    },
+    {
+      "name": "inventory_transfer_stock_events",
+      "rls": true,
+      "forced": false,
+      "anon_select": false,
+      "authenticated_write": false
+    },
+    {
+      "name": "purchase_inventory_receipts",
+      "rls": true,
+      "forced": false,
+      "anon_select": false,
+      "authenticated_write": false
+    }
+  ],
+  "rpc_execute": [
+    {
+      "function": "public.apply_inventory_operations(uuid,uuid,jsonb)",
+      "authenticated": true,
+      "anon": false,
+      "service_role": false
+    },
+    {
+      "function": "public.apply_location_inventory_delta(uuid,uuid,uuid,numeric,boolean)",
+      "authenticated": true,
+      "anon": false,
+      "service_role": true
+    },
+    {
+      "function": "public.create_inventory_transfer_order(uuid,uuid,jsonb)",
+      "authenticated": true,
+      "anon": false,
+      "service_role": false
+    },
+    {
+      "function": "public.transition_inventory_transfer_order(uuid,uuid,uuid,jsonb)",
+      "authenticated": true,
+      "anon": false,
+      "service_role": false
+    },
+    {
+      "function": "public.receive_bill_inventory_lines(uuid,uuid,uuid,uuid,uuid,jsonb)",
+      "authenticated": true,
+      "anon": false,
+      "service_role": false
+    },
+    {
+      "function": "public.apply_inventory_operations_locked(uuid,uuid,jsonb)",
+      "authenticated": false,
+      "anon": false,
+      "service_role": false
+    }
+  ],
+  "row_counts": {
+    "inventory_levels": 2,
+    "purchases": 71,
+    "purchase_items": 157
+  },
+  "history_rows": {
+    "movements": 0,
+    "transfer_orders": 0,
+    "purchase_receipts": 0,
+    "private_writes": 0
+  },
+  "invalid_constraints": 0,
+  "remote_business_mutation_tested": false,
+  "sources": [
+    {
+      "file": "20261113170000_inventory_movements.sql",
+      "sha256": "a9cad52ff20fce97e66b37a2664cba6936e6bb590196567c813d5563ef5579d4"
+    },
+    {
+      "file": "20261113190000_inventory_writer_coordination.sql",
+      "sha256": "589f103613e7bd0774ca57043f1481b7fcfef6c2e26c103c0364916c62303255"
+    },
+    {
+      "file": "20261113200000_inventory_receiving_responsibility.sql",
+      "sha256": "bc6008c980c231ee0d3e212c8f6fe0e9336c28417989ec01c88db6ee165c5c2b"
+    },
+    {
+      "file": "20261113210000_inventory_transfer_orders.sql",
+      "sha256": "d2548e821c1023b0bb834ace8a048da9f8c9ee9a380c3e46c72163d843776819"
+    },
+    {
+      "file": "20261113210100_inventory_transfer_legacy_projection.sql",
+      "sha256": "3c0dfc7c5b269214bb360740ddee6ae9c4120a4f1430d396ac1a80ad37fc9afc"
+    },
+    {
+      "file": "20261113210150_inventory_transfer_partial_dispatch.sql",
+      "sha256": "c0bf59684b7903c22d3d6862658318059510590ef32a4d7cbe673e8348958b98"
+    },
+    {
+      "file": "20261113210200_partial_bill_inventory_receipts.sql",
+      "sha256": "62c3b9cfe1e4f9f675e4a7344ed896f47da60d06d86b5642760657d859f00f77"
+    },
+    {
+      "file": "20261113210300_inventory_transfer_stock_events.sql",
+      "sha256": "9e1fe4099d7745b5e0a91d409bd66274bc4b535418024e5a135e72ef02ef981c"
+    },
+    {
+      "file": "20261113210400_inventory_receipt_write_boundary.sql",
+      "sha256": "0660aeb2ae113eb4d551ab71920f95ce2f1b8b9cd7e7a64365243e55357dacf9"
+    },
+    {
+      "file": "20261113210500_accounting_preserve_received_bill_lines.sql",
+      "sha256": "62bf70a92c155b7a2e4c4acd51f880ec3631be6f926c0707f24d68993e5073f4"
+    }
+  ]
+}
