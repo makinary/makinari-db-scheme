@@ -902,6 +902,14 @@
     {
       "file": "20261114000000_order_line_inventory_receipts.sql",
       "sha256": "6629124a4d1e42ed831ee275b2bf52b0ca2643e3446fdaba199c764def61e622"
+    },
+    {
+      "file": "20261114210000_requirement_economic_recovery_contention.sql",
+      "sha256": "ffdd5bc4c58127d0d81fd19a0791433d6e1811dd38b424dea55fddfdd79971e3"
+    },
+    {
+      "file": "20261114210100_catalog_backfill_contention.sql",
+      "sha256": "e6fb4d838144baec9d8aee2a7a015842ea06a8426ea702819b9bcb799bc32fac"
     }
   ],
   "validation": {
@@ -918,5 +926,5 @@
     "default ACLs owned by supabase_admin; local Supabase initializes these"
   ],
   "upgradeManifest": "upgrades-20261030.json",
-  "migrationCount": 223
+  "migrationCount": 225
 }

@@ -2,6 +2,23 @@
 
 Source of truth for the Supabase database schema. Migrations and generated types live here.
 
+## API timeout contention — applied (2026-11-15 UTC)
+
+Applied only `20261114210000_requirement_economic_recovery_contention.sql` and
+`20261114210100_catalog_backfill_contention.sql` to linked Makinari
+(`rnjgeloamtszdjplmqxy`) at **02:34:00 UTC**, using ignored local credentials over
+TLS. Both changes and exact-source history committed atomically. Independent
+verification at **02:34:02 UTC** confirmed exact installed bodies, preserved
+owners/authorization, function-local 50ms lock limits, unchanged synchronous
+catalog refresh, and unchanged queue security. No business operation was invoked.
+
+API/canonical/bootstrap copies match. Static validation covers **225 files / 80
+upgrades**; all seven validator tests pass. The immutable baseline is unchanged.
+These mitigate reproduced contention, not all possible timeout causes. The web
+inventory fix and API error-message changes still require deployment. No historical
+migration replay, commit, push or application deployment was performed.
+See [application evidence](supabase/validation/20261115_timeout_contention.md).
+
 ## POS inventory debit receipts — applied (2026-11-14 UTC)
 
 Applied only `20261114000000_order_line_inventory_receipts.sql` to linked

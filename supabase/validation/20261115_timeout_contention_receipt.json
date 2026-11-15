@@ -1,0 +1,42 @@
+{
+  "target": "rnjgeloamtszdjplmqxy",
+  "checked_at": "2026-11-15T02:34:02.124152+00:00",
+  "tls": true,
+  "history": [
+    {
+      "version": "20261114210000",
+      "name": "requirement_economic_recovery_contention",
+      "exact_source": true
+    },
+    {
+      "version": "20261114210100",
+      "name": "catalog_backfill_contention",
+      "exact_source": true
+    }
+  ],
+  "functions": [
+    {
+      "signature": "backfill_catalog_search(uuid,integer,uuid)",
+      "settings": [
+        "search_path=pg_catalog, pg_temp",
+        "lock_timeout=50ms"
+      ],
+      "owner_preserved": true,
+      "authorization_preserved": true,
+      "exact_body": true
+    },
+    {
+      "signature": "recheck_requirement_economic_pauses(uuid[])",
+      "settings": [
+        "search_path=pg_catalog",
+        "lock_timeout=50ms"
+      ],
+      "owner_preserved": true,
+      "authorization_preserved": true,
+      "exact_body": true
+    }
+  ],
+  "refresh_unchanged": true,
+  "queue_security_unchanged": true,
+  "business_operations_executed": false
+}

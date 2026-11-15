@@ -22,7 +22,7 @@ class BootstrapValidationTests(unittest.TestCase):
         shutil.copytree(ROOT / 'supabase/migrations', self.root / 'supabase/migrations')
 
     def test_current_bootstrap_and_upgrades(self):
-        self.assertEqual(VALIDATOR.validate(self.root), (223, 78))
+        self.assertEqual(VALIDATOR.validate(self.root), (225, 80))
 
     def test_duplicate_manifest_entry_is_rejected(self):
         path = self.root / 'bootstrap/manifest.json'
