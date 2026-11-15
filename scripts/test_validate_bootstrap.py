@@ -22,7 +22,24 @@ class BootstrapValidationTests(unittest.TestCase):
         shutil.copytree(ROOT / 'supabase/migrations', self.root / 'supabase/migrations')
 
     def test_current_bootstrap_and_upgrades(self):
-        self.assertEqual(VALIDATOR.validate(self.root), (225, 80))
+        self.assertEqual(VALIDATOR.validate(self.root), (226, 80))
+
+    def test_qa_compatibility_is_not_a_canonical_upgrade(self):
+        name = '20261113210450_qa_accounting_wrapper_oid_compatibility.sql'
+        source = self.root / 'bootstrap/supabase/migrations' / name
+        self.assertTrue(source.exists())
+        self.assertFalse((self.root / 'supabase/migrations' / name).exists())
+        shutil.copy2(source, self.root / 'supabase/migrations' / name)
+        with self.assertRaisesRegex(AssertionError, 'QA-only file in canonical history'):
+            VALIDATOR.validate(self.root)
+
+    def test_unreviewed_qa_compatibility_list_is_rejected(self):
+        path = self.root / 'bootstrap/manifest.json'
+        manifest = json.loads(path.read_text())
+        manifest['qaCompatibilityFiles'] = []
+        path.write_text(json.dumps(manifest))
+        with self.assertRaisesRegex(AssertionError, 'Unexpected QA compatibility files'):
+            VALIDATOR.validate(self.root)
 
     def test_duplicate_manifest_entry_is_rejected(self):
         path = self.root / 'bootstrap/manifest.json'

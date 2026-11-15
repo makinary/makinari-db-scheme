@@ -2,6 +2,17 @@
 
 Source of truth for the Supabase database schema. Migrations and generated types live here.
 
+## Fresh-QA accounting wrapper restore repair — local only (2026-11-15)
+
+Added a QA-only OID compatibility prerequisite before the unchanged accounting
+receipt-line patch. The captured baseline and applied canonical migrations remain
+immutable. Actual captured wrapper/private definitions now reproduce the old
+failure and pass compatibility plus the canonical patch in socket-only PostgreSQL;
+20 combined receipt regressions and nine bootstrap validator cases pass.
+Bootstrap: **226 files / 80 canonical upgrades / 1 QA prerequisite**. No remote
+application or fresh Supabase/E2E success is claimed. Publish these schema changes
+before another installer retry; see [repair evidence and limits](supabase/validation/20261115_qa_accounting_wrapper_compatibility.md).
+
 ## API timeout contention — applied (2026-11-15 UTC)
 
 Applied only `20261114210000_requirement_economic_recovery_contention.sql` and

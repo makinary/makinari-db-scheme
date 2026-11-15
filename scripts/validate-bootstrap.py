@@ -25,7 +25,9 @@ def validate(root):
     assert len(upgrade_entries) == len(upgrade['files']), 'Duplicate upgrade filename'
     cutoff = upgrade['baselineLastVersion']
     assert cutoff == '20261027001000', 'Unexpected baseline boundary'
-    assert set(upgrade_entries) == {p.name for p in files if p.name.split('_')[0] > cutoff}
+    compatibility = manifest.get('qaCompatibilityFiles', [])
+    assert compatibility == ['20261113210450_qa_accounting_wrapper_oid_compatibility.sql'], 'Unexpected QA compatibility files'
+    assert set(upgrade_entries) == {p.name for p in files if p.name.split('_')[0] > cutoff and p.name not in compatibility}
     allowed = set(upgrade['allowedTopLevelInsertFiles'])
     assert allowed == {
         '20261027174001_procurement_credentials.sql',
@@ -53,6 +55,11 @@ def validate(root):
             if p.name not in allowed:
                 assert not re.search(r'\bINSERT\s+INTO\s', top, re.I), p.name
             assert not re.search(r'\b(?:INSERT\s+INTO|COPY)\s+auth\.users\b', sql, re.I), p.name
+        elif p.name in compatibility:
+            assert not (root / 'supabase/migrations' / p.name).exists(), 'QA-only file in canonical history'
+            assert p.name < '20261113210500_accounting_preserve_received_bill_lines.sql'
+            assert 'location_acl_assert_unscoped_rpc' in sql and 'aclexplode' in sql
+            assert not re.search(r'\b(?:INSERT\s+INTO|COPY|GRANT)\s', top_level_sql(sql), re.I), p.name
         else:
             # The captured baseline remains strictly schema-only and immutable.
             assert not re.search(r'^COPY |^INSERT INTO ', sql, re.M), p.name
